@@ -1,0 +1,29 @@
+{% extends 'layout.html' %} 
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<br>
+<div class="container col-8">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for livro in livros %}
+    <div class="col">
+        <div class="card bg-dark mb-3" style="min-width: 18rem; max-width: 18rem; max-height: 18rem; min-height: 18rem; color: rgb(235, 237, 239);">
+            <div class="card-body">
+                <h5 class="card-title"><b>{{ livro.nome}}</b></h5>
+                <p class="card-text"><b>Autor: </b>{{ livro.autor}}</p>
+                <p class="card-text"><b>Editora: </b>{{ livro.editora}}</p>
+                <p class="card-text"><b>Preço:</b> R${{ livro.valor}}.00</p>
+                <p class="card-text"><b>Quantidade: </b>{{ livro.quantidade}}</p>
+                <a href="/atualizar/{{livro.id}}" class="btn btn-info">Atualizar</a>
+                <a href="/excluir/{{livro.id}}" class="btn btn-danger">X</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+<br>
+<br>
+{% endblock %}
